@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html {
+    height: 100vh;
+    
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    width: auto;
+
+    background-color: blue;
+    overflow: hidden;
+}
+.menu a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.menu a:hover{
+    background-color: #ddd;
+    color: black;
+}
+.menu a.active{
+    background-color: #04AA6D;
+  color: white;
+}
+
+.dropbox{
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    margin-top: 300px;
+    
+}
+
+#ptoContent{
+    width: 300px;
+    height: 600px;
+    background-color: wheat;
+    margin-top: 30px;
+    margin-left: 50px;
+    position: relative;
+    text-align: center;
+
+}
+
+#vognNr{
+    margin-top: 20px;
+    width: 237px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+
+#fejlName{
+    margin-top: 150px;
+    width: 237px;
+    height: 60px;
+    border: none;
+    outline: none;
+}
+
+input[type=text]{
+  text-indent: 10px;
+}
+
+#vognNr::placeholder{
+    text-align: center;
+}
+
+#fejlInput{
+    background-color:green;
+    width: 250px;
+    height: 70px;
+    margin-top: 200px;
+    margin-left: 25px;
+}
+.createdFejl{
+    background-color: red;
+}
+#problemstillinger{
+    margin-top: 20px;
+    width: 237px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    outline: none;
+}
+
+#problemstillinger option{
+    color: coral;
+    padding-top: 5px;
+}
+
+#årsag1{
+    margin-left: 31px;
+    margin-top: 20px;
+    width: 237px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    outline: none;
+}
+
+#årsag2{
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 237px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    outline: none;
+}
+
+#årsag3{
+    margin-left: 35px;
+    margin-top: 20px;
+    width: 237px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    outline: none;
+}
+
+#årsag4{
+    margin-left: 31px;
+    margin-top: 20px;
+    width: 237px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    outline: none;
+
+}
+
+.btn_submit{
+    position: absolute;
+    left: 55px;
+    bottom: 50px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: crimson;
+}
+.btn_submit:hover{
+    background-color: seagreen;
+}

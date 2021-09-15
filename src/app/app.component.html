@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Banke</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <div class="menu">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+
+  <div id="ptoContent">
+    
+    <input type="text"  id="vognNr" placeholder="Skriv venligst vogn nummer"  [(ngModel)]="pto.vognNr" name="vognNr" required />
+
+    <select id="problemstillinger"  onchange="myFunc()">
+      <option id="" selected>Please choose an option</option>
+      <option id="problem1">E-PTO vil ikke lade </option>
+      <option id="problem2">Manglende tryk og/eller flow </option>
+      <option id="problem3">E-pto vil ikke starte op </option>
+      <option id="problem4" >Manglende effekt fra E-PTO </option>
+      <option id="problem5" >Manglende effekt ud af PTO fra lastbil </option>
+      <option id="problem6" >E-PTO støjer meget  </option>
+      <option id="problem7" >Forsyningsledninger er bidt i stykker</option> 
+      <option id="problem8" >Forsyningsledninger er bidt i stykker </option>
+      <option id="problem9">Olielækage  </option>
+    </select>
+
+    <select id="årsag1" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="mo">Manglende Olie</option>
+      <option id="">#</option>
+    </select>
+                                
+    <select id="årsag2" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="mo">Manglende Olie</option>
+      <option id="na">Nødstop aktiv</option>
+      <option id="eia">E-pto ikke aktiveret </option>
+    </select>
+
+    <select id="årsag3" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="benz">Påfyld Olie </option>
+      <option id="bmw">Påfyld Olie </option>
+      <option id="opel">Påfyld Olie </option>
+    </select>
+
+    <select id="årsag4" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="fpls">Fejl på LS </option>
+      <option id="fpetl">Fejl på ETL </option>
+      <option id="fpm">Fejl på elmotor </option>
+    </select>
+
+    
+    <input type="text"  id="fejlName"  [(ngModel)]="pto.fejlName" name="fejlName" required />
+
+     
+    
+    <button class="btn_submit" (click)="savePto()" >Opret E-PTO</button> 
+
+
+</div> 
+
+
+
+</body>
+</html>
