@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {PtoService} from './services/pto.service';
+import { ProblemService } from './services/problem.service';
+import "../assets/js/jsFunc";
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { jsDocComment } from '@angular/compiler';
+import { FormControl, FormGroup } from '@angular/forms';
+import { IServices } from './interfaces/services';
+
 
 
 declare var myFunc: () => void;
@@ -11,38 +18,59 @@ declare var myFunc: () => void;
 })
 export class AppComponent implements OnInit {
 
-  pto = {
-    vognNr: '',
+  title = 'BankeWebsite';
+
+  public pto = {
+    vognNr: '', 
+    serieNr: '',
     fejlName: ''
+
   };
+
+  services: any;
+  currentService = null;
   
 
-
-  constructor(private ptoService: PtoService) {}
-
+  
+  constructor(private ptoService: PtoService, private problemService: ProblemService) {}
 
   ngOnInit(){ 
+    this.retrieveTutorials();
   }
-
 
   savePto(){
     const data = {
       vognNr: this.pto.vognNr,
-      fejlName: this.pto.fejlName
+      serieNr: this.pto.serieNr,
+      fejlName: document.getElementById('fejlName')?.innerHTML
+
     };
 
     this.ptoService.create(data)
       .subscribe(
-        response => {
+        (        response: any) => {
           console.log(response);
           
+        },
+        (        error: any) => {
+          console.log(error);
+        });  
+  }
+
+  retrieveTutorials() {
+    this.problemService.getAll()
+      .subscribe(
+        data => {
+          this.services = data;
+          console.log(data);
         },
         error => {
           console.log(error);
         });
   }
 
-  title = 'BankeWebsite';
+
+ 
 
   callMyFunc(){
     myFunc();

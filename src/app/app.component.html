@@ -4,39 +4,46 @@
   <meta charset="utf-8">
   <title>Banke</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
   <div class="menu">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#news">e-pto 2</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#about">Sprog</a></li>
+    </ul>
   </div>
+  
+  
+    <ul *ngFor="let service of services; ">
+      <li ></li>
+    </ul>
+  
+  
 
   <div id="ptoContent">
     
-    <input type="text"  id="vognNr" placeholder="Skriv venligst vogn nummer"  [(ngModel)]="pto.vognNr" name="vognNr" required />
+    <h4 lang="en" class="ptoSkrift">E-PTO Fejlmelding</h4>
 
-    <select id="problemstillinger"  onchange="myFunc()">
-      <option id="" selected>Please choose an option</option>
-      <option id="problem1">E-PTO vil ikke lade </option>
-      <option id="problem2">Manglende tryk og/eller flow </option>
-      <option id="problem3">E-pto vil ikke starte op </option>
-      <option id="problem4" >Manglende effekt fra E-PTO </option>
-      <option id="problem5" >Manglende effekt ud af PTO fra lastbil </option>
-      <option id="problem6" >E-PTO støjer meget  </option>
-      <option id="problem7" >Forsyningsledninger er bidt i stykker</option> 
-      <option id="problem8" >Forsyningsledninger er bidt i stykker </option>
-      <option id="problem9">Olielækage  </option>
+    <input type="text" id="vognNr" placeholder="Skriv venligst vogn nummer"  [(ngModel)]="pto.vognNr" name="vognNr" required />
+    <input type="text" id="serieNr" placeholder="Skriv venligst serie nummer" [(ngModel)]="pto.serieNr"  name="serieNr" required />
+
+    <select id="problemstillinger" onchange="myFunc()" >
+      <option id="" selected>Service Problem</option>
+      <option id="problem1" *ngFor="let service of services; let indexOfelement=index;" [attr.id]="service.serviceProblem">{{indexOfelement}} {{service.serviceProblem}}</option>
     </select>
 
-    <select id="årsag1" onchange="myFunc()" hidden>
-      <option id="" selected>Please choose an option</option>
-      <option id="mo">Manglende Olie</option>
-      <option id="">#</option>
+    <select id="årsag1" onchange="myFunc()">
+      <option id="" selected>Mulige årsager</option>
+      <option id="fpl">Fejl på ladekabel</option>
+      <option id="fift">Fejl i forsynings tavle</option>
+      <option id="oaf">Overbelastning af forsyning ved mange biler som lader på samme tid</option>
+      <option id="dlk">Defekt lade apparat</option>
     </select>
                                 
     <select id="årsag2" onchange="myFunc()" hidden>
@@ -53,7 +60,7 @@
       <option id="opel">Påfyld Olie </option>
     </select>
 
-    <select id="årsag4" onchange="myFunc()" hidden>
+    <select id="årsag4" onchange="myFunc()">
       <option id="" selected>Please choose an option</option>
       <option id="fpls">Fejl på LS </option>
       <option id="fpetl">Fejl på ETL </option>
@@ -61,9 +68,9 @@
     </select>
 
     
-    <input type="text"  id="fejlName"  [(ngModel)]="pto.fejlName" name="fejlName" required />
-
-     
+    <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}random text lorem ipsusadaddsadasdasdasdaasdsadsadsads</p>
+   
+    
     
     <button class="btn_submit" (click)="savePto()" >Opret E-PTO</button> 
 
@@ -71,6 +78,16 @@
 </div> 
 
 
-
 </body>
 </html>
+<!---
+<select id="problemstillinger" onchange="myFunc()" *ngFor="let service of services; ">
+  <option id="" selected>Service Problem</option>
+  <option id="problem1">E-PTO vil ikke lade </option>
+  <option id="problem2">Manglende tryk og/eller flow </option>
+  <option id="problem3">E-pto vil ikke starte op </option>
+  <option id="problem4" >Manglende effekt fra E-PTO </option>
+  <option id="problem5" >E-PTO støjer meget</option>
+  <option id="problem6" >Forsyningsledninger er bidt i stykker</option> 
+  <option id="problem7" >Olielækage</option>
+</select> -->

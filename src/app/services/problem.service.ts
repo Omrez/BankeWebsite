@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import {IServices} from '../interfaces/services'
 
-const baseUrl = 'http://localhost:8080/pto';
+const baseUrl = 'http://localhost:8080/service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PtoService {
+export class ProblemService {
 
   constructor(private http: HttpClient) { }
 
 
-  getAll() {
+  getAll()  {
     return this.http.get(baseUrl);
   }
 
