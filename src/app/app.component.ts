@@ -5,7 +5,6 @@ import "../assets/js/jsFunc";
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { jsDocComment } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
-import { IServices } from './interfaces/services';
 
 
 
