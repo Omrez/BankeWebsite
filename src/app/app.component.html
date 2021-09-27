@@ -20,9 +20,15 @@
   </div>
   
   
-    <ul *ngFor="let service of services; ">
-      <li ></li>
-    </ul>
+  <!---<p *ngFor="let p of services; let i = index" >{{p.serviceProblem}}
+
+  </p>
+    <br>
+    <br>
+    <br>
+  <p *ngFor="let p of services; let i = index">{{p.causes}}
+
+  </p>-->
   
   
 
@@ -33,18 +39,25 @@
     <input type="text" id="vognNr" placeholder="Skriv venligst vogn nummer"  [(ngModel)]="pto.vognNr" name="vognNr" required />
     <input type="text" id="serieNr" placeholder="Skriv venligst serie nummer" [(ngModel)]="pto.serieNr"  name="serieNr" required />
 
+    
+    
     <select id="problemstillinger" onchange="myFunc()" >
       <option id="" selected>Service Problem</option>
-      <option id="problem1" *ngFor="let service of services; let indexOfelement=index;" [attr.id]="service.serviceProblem">{{indexOfelement}} {{service.serviceProblem}}</option>
+      <option id="" *ngFor="let service of services"> {{service.serviceProblem}}</option>
     </select>
 
-    <select id="årsag1" onchange="myFunc()">
+    <table>
+      <ng-container *ngFor="let cause of services">
+          <tr><td></td></tr>
+          <tr *ngFor="let c of cause.causes; index as i; first as isFirst"><td style="float: left;">{{c.name}}</td></tr>
+          <tr><td></td></tr>
+      </ng-container>
+    </table>
+
+    <!--<select id="årsag1" onchange="myFunc()">
       <option id="" selected>Mulige årsager</option>
-      <option id="fpl">Fejl på ladekabel</option>
-      <option id="fift">Fejl i forsynings tavle</option>
-      <option id="oaf">Overbelastning af forsyning ved mange biler som lader på samme tid</option>
-      <option id="dlk">Defekt lade apparat</option>
-    </select>
+      <option id="" *ngFor="let c of services.causes; index as i; first as isFirst" >{{c.name}}</option>
+    </select>-->
                                 
     <select id="årsag2" onchange="myFunc()" hidden>
       <option id="" selected>Please choose an option</option>
@@ -68,11 +81,11 @@
     </select>
 
     
-    <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}random text lorem ipsusadaddsadasdasdasdaasdsadsadsads</p>
+    <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}</p>
    
     
     
-    <button class="btn_submit" (click)="savePto()" >Opret E-PTO</button> 
+    <button class="btn_submit" (click)="savePto()" onclick="clearAll()">Opret E-PTO</button> 
 
 
 </div> 

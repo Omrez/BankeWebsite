@@ -5,6 +5,8 @@ import "../assets/js/jsFunc";
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { jsDocComment } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 
@@ -26,12 +28,15 @@ export class AppComponent implements OnInit {
 
   };
 
-  services: any;
-  currentService = null;
+  services: any = [];
+  causes: any = [];
   
-
-  
-  constructor(private ptoService: PtoService, private problemService: ProblemService) {}
+  constructor(
+     private ptoService: PtoService,
+     private problemService: ProblemService,
+     private route: ActivatedRoute,
+     private router: Router
+     ) {}
 
   ngOnInit(){ 
     this.retrieveTutorials();

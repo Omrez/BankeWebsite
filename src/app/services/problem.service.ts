@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {IServices} from '../interfaces/services'
 
 const baseUrl = 'http://localhost:8080/service';
 
