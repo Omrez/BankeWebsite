@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import {problemSer} from '../interface/problem.interface';
+import { map, catchError } from 'rxjs/operators';
+
 const baseUrl = 'http://localhost:8080/service';
 
 @Injectable({
@@ -16,8 +19,8 @@ export class ProblemService {
     return this.http.get(baseUrl);
   }
 
-  get(id: any) {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id: any): Observable<problemSer[]> {
+    return this.http.get<problemSer[]>(`${baseUrl}/${id}`)
   }
 
   create(data: any,) {

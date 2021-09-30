@@ -43,20 +43,19 @@
     
     <select id="problemstillinger" onchange="myFunc()" >
       <option id="" selected>Service Problem</option>
-      <option id="" *ngFor="let service of services"> {{service.serviceProblem}}</option>
+      <option id="" *ngFor="let service of problems">{{service.serviceProblem}} </option>
     </select>
 
-    <table>
-      <ng-container *ngFor="let cause of services">
-          <tr><td></td></tr>
-          <tr *ngFor="let c of cause.causes; index as i; first as isFirst"><td style="float: left;">{{c.name}}</td></tr>
-          <tr><td></td></tr>
-      </ng-container>
-    </table>
+    
 
-    <!--<select id="årsag1" onchange="myFunc()">
+    <ul><li *ngFor="let problem of services">{{problem.serviceProblem}}</li>
+      <li></li>
+    </ul>
+
+
+   <!-- <select id="årsag1" onchange="myFunc()">
       <option id="" selected>Mulige årsager</option>
-      <option id="" *ngFor="let c of services.causes; index as i; first as isFirst" >{{c.name}}</option>
+      <option *ngFor="let cause of services; " [value]='cause.id'>{{cause.name}}</option>
     </select>-->
                                 
     <select id="årsag2" onchange="myFunc()" hidden>
