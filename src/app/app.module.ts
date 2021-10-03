@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProblemService } from './services/problem.service';
-import { MatCardModule} from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -21,9 +18,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatButtonModule,
     FlexLayoutModule
   ],
   providers: [ProblemService],

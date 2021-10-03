@@ -2,8 +2,6 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import {PtoService} from './services/pto.service';
 import { ProblemService } from './services/problem.service';
 import "../assets/js/jsFunc";
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
-import { jsDocComment } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {problemSer} from './interface/problem.interface'
@@ -35,7 +33,7 @@ export class AppComponent implements OnInit {
   
 
   problems: any = [];
-  public services: problemSer[]=[];
+  services: problemSer;
   constructor(
      private ptoService: PtoService,
      private problemService: ProblemService,
@@ -48,13 +46,11 @@ export class AppComponent implements OnInit {
   }
   getProblem(id: any){
     this.problemService.get(id)
-    .subscribe(data => {this.services = data
+    .subscribe((data: problemSer) => {this.services = data;
       
       console.log(data);
-      
+  
     });
-    
-    
   }
 
   savePto(){

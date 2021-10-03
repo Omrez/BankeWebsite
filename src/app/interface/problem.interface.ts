@@ -1,9 +1,10 @@
 
 export interface problemSer{
+    id: string,
     serviceProblem: string,
-    causes: any,
+    causes: object[][],
     name: string,
-    solution: any
+    solution: string[]
 }
 
  

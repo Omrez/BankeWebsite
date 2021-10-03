@@ -48,10 +48,21 @@
 
     
 
-    <ul><li *ngFor="let problem of services">{{problem.serviceProblem}}</li>
+    <!-- <ul >
+      <li *ngFor="let problem of services"> {{problem.serviceProblem}} </li>
       <li></li>
-    </ul>
-
+    </ul>-->
+    
+    
+      <ng-container >
+          <tr>
+            <td></td>
+            
+            <h1>{{services?.serviceProblem}}</h1>
+        
+          </tr>
+      </ng-container>
+    
 
    <!-- <select id="årsag1" onchange="myFunc()">
       <option id="" selected>Mulige årsager</option>
