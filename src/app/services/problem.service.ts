@@ -22,14 +22,14 @@ export class ProblemService {
   constructor(private http: HttpClient) { }
 
 
-  getAll()  {
-    return this.http.get(baseUrl);
+  getAll(): Observable<problemSer>  {
+    return this.http.get<problemSer>(baseUrl);
   }
 
   get(id: any): Observable<problemSer> {
     return this.http.get<problemSer>(`${baseUrl}/${id}`)
   }
-
+/*
   create(data: any,) {
     return this.http.post(baseUrl, data);
   }
@@ -46,7 +46,7 @@ export class ProblemService {
     return this.http.delete(baseUrl);
   }
 
-  /*findByTitle(title: any) {
+  findByTitle(title: any) {
     return this.http.get(`${baseUrl}?title=${title}`);
   }*/
 }

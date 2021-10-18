@@ -2,7 +2,7 @@
 export interface problemSer{
     id: string,
     serviceProblem: string,
-    causes: object[][],
+    causes: string[],
     name: string,
     solution: string[]
 }

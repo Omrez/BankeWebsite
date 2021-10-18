@@ -1,0 +1,65 @@
+  <div id="ptoContent">
+    
+    <h4 lang="en" class="ptoSkrift">{{'E-PTO Error Report' | translate}}</h4>
+
+    <div [formGroup]="infoGroup">
+    <input type="text" id="vognNr" formControlName="vogn" placeholder="{{'Please enter truck number' | translate}}"  [(ngModel)]="pto.vognNr" name="vognNr" required />
+   
+    <input type="text" id="serieNr" formControlName="serie" placeholder="{{'Please enter serial number' | translate}}" [(ngModel)]="pto.serieNr"  name="serieNr" required />
+  </div>
+    
+    
+    <select id="problemstillinger" onchange="myFunc()">
+      <option id="" selected>Service Problem</option>
+      <option id="" *ngFor="let problem of problems" [value]="problem.id">{{problem.serviceProblem}} </option>
+    </select>
+    
+
+   <select id="årsag1" onchange="myFunc()">
+      <option id="" selected>Mulige årsager</option>
+      <option id="" *ngFor="let cause of services?.causes" [value]="services.id">{{cause}}</option>
+    </select>
+                                
+    <select id="årsag2" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="mo">Manglende Olie</option>
+      <option id="na">Nødstop aktiv</option>
+      <option id="eia">E-pto ikke aktiveret </option>
+    </select>
+
+    <select id="årsag3" onchange="myFunc()" hidden>
+      <option id="" selected>Please choose an option</option>
+      <option id="benz">Påfyld Olie </option>
+      <option id="bmw">Påfyld Olie </option>
+      <option id="opel">Påfyld Olie </option>
+    </select>
+
+    <select id="årsag4" onchange="myFunc()">
+      <option id="" selected>Please choose an option</option>
+      <option id="fpls">Fejl på LS </option>
+      <option id="fpetl">Fejl på ETL </option>
+      <option id="fpm">Fejl på elmotor </option>
+    </select>
+
+    
+    <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}</p>
+   
+    
+    
+    <a (click)="openAlert()"><button class="btn_submit" (click)="savePto()" [disabled]="infoGroup.invalid">Create E-PTO</button> </a>
+
+</div> <!--Pto Content End-->
+
+
+
+<!---
+<select id="problemstillinger" onchange="myFunc()" *ngFor="let service of services; ">
+  <option id="" selected>Service Problem</option>
+  <option id="problem1">E-PTO vil ikke lade </option>
+  <option id="problem2">Manglende tryk og/eller flow </option>
+  <option id="problem3">E-pto vil ikke starte op </option>
+  <option id="problem4" >Manglende effekt fra E-PTO </option>
+  <option id="problem5" >E-PTO støjer meget</option>
+  <option id="problem6" >Forsyningsledninger er bidt i stykker</option> 
+  <option id="problem7" >Olielækage</option>
+</select> -->

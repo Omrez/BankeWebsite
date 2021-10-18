@@ -1,104 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Banke</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
   <div class="menu">
-    <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">e-pto 2</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#about">Sprog</a></li>
-    </ul>
-  </div>
   
-  
-  <!---<p *ngFor="let p of services; let i = index" >{{p.serviceProblem}}
+   <a routerLink="/home"><img class="logo" src="https://banke.pro/wp-content/themes/classy/images/logo.png" ></a>
 
-  </p>
-    <br>
-    <br>
-    <br>
-  <p *ngFor="let p of services; let i = index">{{p.causes}}
-
-  </p>-->
-  
-  
-
-  <div id="ptoContent">
-    
-    <h4 lang="en" class="ptoSkrift">E-PTO Fejlmelding</h4>
-
-    <input type="text" id="vognNr" placeholder="Skriv venligst vogn nummer"  [(ngModel)]="pto.vognNr" name="vognNr" required />
-    <input type="text" id="serieNr" placeholder="Skriv venligst serie nummer" [(ngModel)]="pto.serieNr"  name="serieNr" required />
-
-    
-    
-    <select id="problemstillinger" onchange="myFunc()" >
-      <option id="" selected>Service Problem</option>
-      <option id="" *ngFor="let service of problems">{{service.serviceProblem}} </option>
-    </select>
-
-    
-
-    <!-- <ul >
-      <li *ngFor="let problem of services"> {{problem.serviceProblem}} </li>
-      <li></li>
-    </ul>-->
-    
-    
-      <ng-container >
-          <tr>
-            <td></td>
-            
-            <h1>{{services?.serviceProblem}}</h1>
-        
-          </tr>
-      </ng-container>
-    
-
-   <!-- <select id="årsag1" onchange="myFunc()">
-      <option id="" selected>Mulige årsager</option>
-      <option *ngFor="let cause of services; " [value]='cause.id'>{{cause.name}}</option>
-    </select>-->
-                                
-    <select id="årsag2" onchange="myFunc()" hidden>
-      <option id="" selected>Please choose an option</option>
-      <option id="mo">Manglende Olie</option>
-      <option id="na">Nødstop aktiv</option>
-      <option id="eia">E-pto ikke aktiveret </option>
-    </select>
-
-    <select id="årsag3" onchange="myFunc()" hidden>
-      <option id="" selected>Please choose an option</option>
-      <option id="benz">Påfyld Olie </option>
-      <option id="bmw">Påfyld Olie </option>
-      <option id="opel">Påfyld Olie </option>
-    </select>
-
-    <select id="årsag4" onchange="myFunc()">
-      <option id="" selected>Please choose an option</option>
-      <option id="fpls">Fejl på LS </option>
-      <option id="fpetl">Fejl på ETL </option>
-      <option id="fpm">Fejl på elmotor </option>
-    </select>
-
-    
-    <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}</p>
    
-    
-    
-    <button class="btn_submit" (click)="savePto()" onclick="clearAll()">Opret E-PTO</button> 
+    <ul class="link">
+      <li><a class="active" routerLink="/home">{{'Home' | translate}}</a></li>
+      
+      <li><a routerLink="/pto">{{'E-PTO' | translate}}</a></li>
+      <li><a href="#about">{{'About' | translate}}</a></li>
 
+      
+      <button onclick="loginForm()" class="login_btn">Login</button>
+      
+        
+        <span class="form-inline">
+          <select class="sprog" 
+              
+              #selectedLang 
+              (change)="switchLang(selectedLang.value)">
+            <option *ngFor="let language of translate.getLangs()" 
+              [value]="language"
+              [selected]="language === translate.currentLang">
+              {{ language }}
+            </option>
+          </select>
+        </span>
+    </ul>
+    
 
-</div> 
+  </div> <!-- Menu End-->
+  
+  <router-outlet></router-outlet>
+  <div id="loginContent" class="modal">
+
+    <form action="" class="form">
+      <button class="closePop" onclick="hidePopup()">X</button>
+
+      <h3 class="signin">Sign In</h3>
+  
+      <input type="text" class="email" placeholder="Enter Email">
+      <input type="password" class="password" id="" placeholder="Enter Password">
+  
+      <button class="submitLogin">Login</button>
+  
+  
+    </form>
+  
+  
+  </div>
+
+  
+
+    <div class="footer">
+
+      <ul>
+        <li><a href="">About</a></li>
+        <li><a href="">E-PTO systems</a></li>
+        <li><a href="">Projects</a></li>
+        <li><a href="">Contacts</a></li>
+
+      </ul>
+
+    </div>
 
 
 </body>
