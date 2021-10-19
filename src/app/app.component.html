@@ -14,14 +14,14 @@
    <a routerLink="/home"><img class="logo" src="https://banke.pro/wp-content/themes/classy/images/logo.png" ></a>
 
    
-    <ul class="link">
+    <ul class="link" *ngIf="!isLoggedIn">
       <li><a class="active" routerLink="/home">{{'Home' | translate}}</a></li>
       
-      <li><a routerLink="/pto">{{'E-PTO' | translate}}</a></li>
+      
       <li><a href="#about">{{'About' | translate}}</a></li>
 
       
-      <button onclick="loginForm()" class="login_btn">Login</button>
+      <button onclick="loginForm()" class="login_btn">Sign In</button>
       
         
         <span class="form-inline">
@@ -37,6 +37,34 @@
           </select>
         </span>
     </ul>
+
+    <ul class="link" *ngIf="isLoggedIn">
+      <li><a class="active" routerLink="/home">{{'Home' | translate}}</a></li>
+      
+      <li><a routerLink="/pto">{{'E-PTO' | translate}}</a></li>
+      <li><a href="#about">{{'About' | translate}}</a></li>
+
+      
+
+      <button class="login_btn" (click)="logout()">Sign out</button>
+      <a href="" class="profileName">{{name}}</a>
+      
+        
+        <span class="form-inline">
+          <select class="sprog" 
+              
+              #selectedLang 
+              (change)="switchLang(selectedLang.value)">
+            <option *ngFor="let language of translate.getLangs()" 
+              [value]="language"
+              [selected]="language === translate.currentLang">
+              {{ language }}
+            </option>
+          </select>
+        </span>
+    </ul>
+
+
     
 
   </div> <!-- Menu End-->
@@ -44,19 +72,38 @@
   <router-outlet></router-outlet>
   <div id="loginContent" class="modal">
 
-    <form action="" class="form">
+    <form action="" class="form" id="myForm">
       <button class="closePop" onclick="hidePopup()">X</button>
 
       <h3 class="signin">Sign In</h3>
   
-      <input type="text" class="email" placeholder="Enter Email">
-      <input type="password" class="password" id="" placeholder="Enter Password">
+      <input type="email" class="email" placeholder="Enter Email" name="lMail" [(ngModel)]="loginForm.lMail" required>
+      <input type="password" class="password" id="" placeholder="Enter Password" name="lPass" [(ngModel)]="loginForm.lPass" required>
   
-      <button class="submitLogin">Login</button>
-  
-  
+      <button class="submitLogin" (click)="submitLogin()" routerLink="/home" onclick="hidePopup()">Login</button>
+      <button class="submitSignup" onclick="signupForm()">Sign up</button>
     </form>
   
+  </div>
+
+  <div id="signupContent" class="modal2">
+
+    <form action="" class="signForm" id="myForm1">
+      <button class="closePop" onclick="hidePopup()">X</button>
+
+      <h3 class="signUp">Sign Up</h3>
+  
+      <input type="text" class="name" placeholder="Enter your name" name="fName" [(ngModel)]="registerForm.fName" required>
+      <input type="text" class="lastName" id="" placeholder="Enter your last name" name="lName" [(ngModel)]="registerForm.lName" required>
+      <input type="email" class="signMail" id="" placeholder="Enter your Email" name="mail" [(ngModel)]="registerForm.mail" required>
+
+      <input type="password" class="signPass" id="" placeholder="Enter your password" name="pass" [(ngModel)]="registerForm.pass" required>
+      <input type="password" class="confirmPass" id="" placeholder="Confirm your password" >
+
+
+      <button class="submitCreate" (click)="submitRegister()">Create Account</button>
+      <button class="signupLogin" onclick="signForm()">Sign In</button>
+    </form>
   
   </div>
 

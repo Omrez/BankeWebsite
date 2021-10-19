@@ -25,6 +25,13 @@ body {
     height: 47px;
 }
 
+.profileName{
+    text-decoration: none;
+    float: right;
+    margin-right: 8px;
+    
+}
+
 .login_btn{
     float: right;
     margin-right: 10px;
@@ -36,8 +43,7 @@ body {
 
 .modal{
     width: 100%;
-    height: 100%;
-    background-color: coral;
+    height: 100%;   
     display: none;
     position: absolute;
     left: 50%;
@@ -49,8 +55,22 @@ body {
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
-.form{
-    background-color: #d3e1f7;
+.modal2{
+    width: 100%;
+    height: 100%;   
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    overflow: auto;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.form ,.show{
+    background-color: whitesmoke;
     width: 430px;
     height: 400px;
     position: absolute;
@@ -58,7 +78,32 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 5px;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
 }
+
+.signForm{
+    background-color: whitesmoke;
+    width: 55%;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 5px;
+    -webkit-animation: fadeIn 0.5s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
 .closePop{
     border: none;
     background-color: transparent;
@@ -77,9 +122,10 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
+    color: #003462;
 }
 
-.email:-webkit-autofill, :-webkit-autofill:focus{
+.email{
   width: 80%;
   padding: 12px 20px;
   margin-left: 10%;
@@ -89,12 +135,11 @@ body {
   border: 1px solid #ccc;
   box-sizing: border-box;
   outline: none;
-  background-color: whitesmoke;
-  -webkit-box-shadow:0 0 0 1000px whitesmoke inset; 
-   
+  background-color: rgb(241, 240, 240);
+  
 }
 
-.password:-webkit-autofill, :-webkit-autofill:focus{
+.password{
   width: 80%;
   padding: 12px 20px;
   margin-left: 10%;
@@ -103,9 +148,93 @@ body {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-  -webkit-box-shadow:0 0 0 50px whitesmoke inset; 
+  background-color: rgb(241, 240, 240);
 }
 
+.signUp{
+    position: relative;
+    top: 45px;
+    left: 7%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    color: #003462;
+}
+
+.name{
+    display: inline-block;
+    margin-top: 8%;
+    width: 42%;
+    padding: 12px 20px;
+    margin-left: 7%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.lastName{
+    display: inline-block;
+    width: 42%;
+    padding: 12px 20px;
+    margin-left: 20px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.signMail{
+    display: inline-block;
+    width: 42%;
+    padding: 12px 20px;
+    margin-left: 7%;
+    margin-top: 25px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.signPass{
+    display: inline-block;
+    width: 42%;
+    padding: 12px 20px;
+    margin-left: 20px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.confirmPass{
+    float: right;
+    width: 42%;
+    padding: 12px 20px;
+    margin-top: 25px;
+    margin-right: 6.5%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.submitCreate{
+    margin-left: 7%;
+    width: 18%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-top: 15%;
+    padding: 0;
+    color: whitesmoke;
+    background-color: #005ca9;
+    border: none;
+
+
+}
+.signupLogin{
+    margin-left: 20px;
+    width: 18%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 12px 20px;
+    padding: 0;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: #005ca9;
+}
 .submitLogin{
   width: 28%;
   height: 40px;
@@ -118,7 +247,22 @@ body {
   box-sizing: border-box;
   line-height: 2px;
   color: whitesmoke;
-  background-color: #005ca9;;
+  background-color: #005ca9;
+}
+
+.submitSignup{
+    width: 30%;
+  height: 40px;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-left: 10%;
+  margin-top: 40px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  line-height: 2px;
+  background-color: transparent;
+  color: #005ca9;
 }
 
 .animate {
