@@ -23,6 +23,7 @@
       
       <button onclick="loginForm()" class="login_btn">Sign In</button>
       
+      
         
         <span class="form-inline">
           <select class="sprog" 
@@ -43,11 +44,15 @@
       
       <li><a routerLink="/pto">{{'E-PTO' | translate}}</a></li>
       <li><a href="#about">{{'About' | translate}}</a></li>
+      <li *ngIf="showUserBoard"><a routerLink="/user">User</a></li>
+
+      <li *ngIf="showAdminBoard"><a routerLink="/admin">Admin Board</a></li>
+      
 
       
 
       <button class="login_btn" (click)="logout()">Sign out</button>
-      <a href="" class="profileName">{{name}}</a>
+      <a href="" class="profileName" routerLink="/profile">{{username}}</a>
       
         
         <span class="form-inline">
@@ -64,6 +69,8 @@
         </span>
     </ul>
 
+    
+
 
     
 
@@ -72,15 +79,16 @@
   <router-outlet></router-outlet>
   <div id="loginContent" class="modal">
 
-    <form action="" class="form" id="myForm">
+    <form action="" class="form" id="myForm" (ngSubmit)="submitLogin()" [formGroup]="loginGroup">
       <button class="closePop" onclick="hidePopup()">X</button>
 
       <h3 class="signin">Sign In</h3>
   
-      <input type="email" class="email" placeholder="Enter Email" name="lMail" [(ngModel)]="loginForm.lMail" required>
-      <input type="password" class="password" id="" placeholder="Enter Password" name="lPass" [(ngModel)]="loginForm.lPass" required>
+      <input type="text" class="email" formControlName="signUser" placeholder="Enter user name" name="lusername" [(ngModel)]="loginForm.lusername" required>
+      
+      <input type="password" class="password" formControlName="signPass" id="loginPass" placeholder="Enter Password" name="lpassword" [(ngModel)]="loginForm.lpassword" required>
   
-      <button class="submitLogin" (click)="submitLogin()" routerLink="/home" onclick="hidePopup()">Login</button>
+      <button type="submit" class="submitLogin" routerLink="/home" onclick="hidePopup()" [disabled]="loginGroup.invalid">Login</button>
       <button class="submitSignup" onclick="signupForm()">Sign up</button>
     </form>
   
@@ -88,20 +96,20 @@
 
   <div id="signupContent" class="modal2">
 
-    <form action="" class="signForm" id="myForm1">
+    <form action="" class="signForm" id="myForm1" (ngSubmit)="submitRegister()" [formGroup]="registerGroup">
       <button class="closePop" onclick="hidePopup()">X</button>
 
       <h3 class="signUp">Sign Up</h3>
   
-      <input type="text" class="name" placeholder="Enter your name" name="fName" [(ngModel)]="registerForm.fName" required>
-      <input type="text" class="lastName" id="" placeholder="Enter your last name" name="lName" [(ngModel)]="registerForm.lName" required>
-      <input type="email" class="signMail" id="" placeholder="Enter your Email" name="mail" [(ngModel)]="registerForm.mail" required>
+      <input type="text" class="userName" formControlName="userName" placeholder="Enter user name" name="username" [(ngModel)]="registerForm.username" required>
+      
+      <input type="email" class="signMail" id="" formControlName="email" placeholder="Enter your Email" name="mail" [(ngModel)]="registerForm.mail" required>
 
-      <input type="password" class="signPass" id="" placeholder="Enter your password" name="pass" [(ngModel)]="registerForm.pass" required>
-      <input type="password" class="confirmPass" id="" placeholder="Confirm your password" >
+      <input type="password" class="signPass" id="" formControlName="password" placeholder="Enter your password" name="pass" [(ngModel)]="registerForm.pass" required>
+      <input type="password" class="confirmPass" id="" formControlName="conpass" placeholder="Confirm your password" name="conPass" [(ngModel)]="registerForm.conPass">
 
 
-      <button class="submitCreate" (click)="submitRegister()">Create Account</button>
+      <button type="submit" class="submitCreate" >Create Account</button>
       <button class="signupLogin" onclick="signForm()">Sign In</button>
     </form>
   

@@ -44,6 +44,11 @@ function hidePopup(){
     document.querySelector(".modal2").style.display = "none";  
 }
 
+function enterKey(){
+
+    
+}
+
 
 function getIdString(){
     var select = document.getElementById('problemstillinger');

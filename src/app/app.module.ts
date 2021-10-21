@@ -10,6 +10,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PtoComponent } from './pto/pto.component';
+import { AdminBoardComponent } from './admin-board/admin-board.component';
+import { UserBoardComponent } from './user-board/user-board.component';
+
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { ProfileboardComponent } from './profileboard/profileboard.component';
 
 
 
@@ -19,7 +24,10 @@ import { PtoComponent } from './pto/pto.component';
   declarations: [
     AppComponent,
     routingComponent,
-    PtoComponent
+    PtoComponent,
+    AdminBoardComponent,
+    UserBoardComponent,
+    ProfileboardComponent
    
   ],
   imports: [
@@ -38,7 +46,7 @@ import { PtoComponent } from './pto/pto.component';
       }
     })
   ],
-  providers: [ProblemService],
+  providers: [ProblemService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
