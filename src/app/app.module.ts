@@ -15,6 +15,9 @@ import { UserBoardComponent } from './user-board/user-board.component';
 
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { ProfileboardComponent } from './profileboard/profileboard.component';
+import { OpretbrugerComponent } from './opretbruger/opretbruger.component';
+import { UpdateContentComponent } from './update-content/update-content.component';
+import { AddcontentComponent } from './addcontent/addcontent.component';
 
 
 
@@ -27,7 +30,10 @@ import { ProfileboardComponent } from './profileboard/profileboard.component';
     PtoComponent,
     AdminBoardComponent,
     UserBoardComponent,
-    ProfileboardComponent
+    ProfileboardComponent,
+    OpretbrugerComponent,
+    UpdateContentComponent,
+    AddcontentComponent
    
   ],
   imports: [

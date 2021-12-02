@@ -43,10 +43,11 @@
       <li><a class="active" routerLink="/home">{{'Home' | translate}}</a></li>
       
       <li><a routerLink="/pto">{{'E-PTO' | translate}}</a></li>
-      <li><a href="#about">{{'About' | translate}}</a></li>
+      
       <li *ngIf="showUserBoard"><a routerLink="/user">User</a></li>
 
       <li *ngIf="showAdminBoard"><a routerLink="/admin">Admin Board</a></li>
+      <li *ngIf="showAdminBoard"><a href="/opretbruger">Opret bruger</a></li>
       
 
       
@@ -89,7 +90,7 @@
       <input type="password" class="password" formControlName="signPass" id="loginPass" placeholder="Enter Password" name="lpassword" [(ngModel)]="loginForm.lpassword" required>
   
       <button type="submit" class="submitLogin" routerLink="/home" onclick="hidePopup()" [disabled]="loginGroup.invalid">Login</button>
-      <button class="submitSignup" onclick="signupForm()">Sign up</button>
+     
     </form>
   
   </div>

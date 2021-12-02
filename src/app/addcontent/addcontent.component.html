@@ -1,0 +1,56 @@
+<div class="wrapper">
+
+
+
+    <div class="serviceContent">
+   
+       <h2 class="serviceTxt">Opret Problem</h2>
+   
+       <form action="" class="CreateForm" [formGroup]="createForm" (ngSubmit)="createService()">
+   
+           <input type="text" class="CreateProblem" placeholder="Problem" formControlName="serviceProblem"  required>
+   
+           <button type="submit" class="CreateService">Opret Problem</button>
+   
+       </form>
+   
+   
+   </div>
+
+   <div class="causeContent">
+        <h2 class="serviceTxt">Opret Årsag</h2>
+    
+        <form action="" class="CreateForm" [formGroup]="createCause">
+
+            <select name="" id="red" (change)="onChange($event.target)">
+                <option id="" selected>Vælg problem til årsag</option>
+                <option id="" *ngFor="let problem of problems" [value]="problem._id">{{problem.serviceProblem}}</option>
+            </select>
+
+            <input type="text" class="CreateCause" placeholder="Årsag" formControlName="name"  required>
+
+            <button type="submit" class="CreateService">Opret Årsag</button>
+
+        </form>
+
+   </div>
+
+   <div class="solutionContent">
+        <h2 class="serviceTxt">Opret Forbedring</h2>
+        
+        <form action="" class="CreateForm" [formGroup]="createSolution">
+
+            <select name="" id="">
+                <option id="" selected>Vælg problem til forbedring</option>
+                <option id="" *ngFor="let problem of problems" [value]="problem.id">{{problem.serviceProblem}} </option>
+            </select>
+
+            <input type="text" class="CreateSolution" placeholder="Forbedring" formControlName="name"  required>
+
+            <button type="submit" class="CreateService">Opret Forbedring</button>
+
+        </form>
+
+   </div>
+
+</div>

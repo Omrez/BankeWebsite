@@ -1,1 +1,41 @@
-<p>{{ content }}</p>
+<div class="adminWrapper">
+
+
+
+
+<div class="EditServices">
+
+    <a class="opretTxt" href="/add-service">Opret Service</a>
+
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Problem</th>
+            <th scope="col">Årsag</th>
+            <th scope="col">Forbedring</th>
+            <th scope="col">Handling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let problem of problems">
+            <td>{{problem.serviceProblem}}</td>
+            <td>{{problem.causes}}</td>
+            <td>{{problem._id}}</td>
+            <td>
+                <a href="" routerLink="/update/{{problem._id}}"><i class="fas fa-pencil-alt" style="padding-left: 5px;"></i></a>
+                <a href=""><i class="fas fa-times" style="padding-left: 35px;"></i></a>
+            </td>
+          </tr>
+
+        </tbody>
+
+
+      </table>
+
+
+</div> 
+
+
+</div>
+    

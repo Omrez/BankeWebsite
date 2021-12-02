@@ -150,8 +150,10 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     this.tokenStorage.signOut();
-    this._router.navigateByUrl('/home');
-    window.location.reload();
+    this._router.navigateByUrl('/home').then(() => {
+      window.location.reload();
+    });
+    
   }
 
   

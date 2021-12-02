@@ -29,15 +29,19 @@ export class ProblemService {
   get(id: any): Observable<problemSer> {
     return this.http.get<problemSer>(`${baseUrl}/${id}`)
   }
-/*
-  create(data: any,) {
-    return this.http.post(baseUrl, data);
-  }
 
   update(id: any, data: any) {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
+  create(data: any) {
+    return this.http.post(baseUrl, data);
+  }
+
+  createCause(id: any, data: any) {
+    return this.http.post(`${baseUrl}/${id}/cause`, data);
+  }
+/*
   delete(id: any) {
     return this.http.delete(`${baseUrl}/${id}`);
   }

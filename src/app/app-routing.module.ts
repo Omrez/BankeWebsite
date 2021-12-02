@@ -6,6 +6,9 @@ import { PtoComponent } from './pto/pto.component';
 import { AdminBoardComponent } from './admin-board/admin-board.component';
 import { UserBoardComponent } from './user-board/user-board.component';
 import { ProfileboardComponent } from './profileboard/profileboard.component';
+import { OpretbrugerComponent } from './opretbruger/opretbruger.component';
+import { UpdateContentComponent } from './update-content/update-content.component';
+import { AddcontentComponent } from './addcontent/addcontent.component';
 
 
 const routes: Routes = [
@@ -14,7 +17,10 @@ const routes: Routes = [
   {path: 'pto', component: PtoComponent},
   {path: 'admin', component: AdminBoardComponent},
   {path: 'user', component: UserBoardComponent},
-  {path: 'profile', component: ProfileboardComponent}
+  {path: 'profile', component: ProfileboardComponent},
+  {path: 'opretbruger', component: OpretbrugerComponent},
+  {path: 'update/:id', component: UpdateContentComponent},
+  {path: 'add-service', component: AddcontentComponent}
 ];
 
 @NgModule({

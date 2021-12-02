@@ -1,0 +1,22 @@
+<div class="wrapper">
+
+
+
+    <div class="serviceContent">
+   
+       <h2 class="serviceTxt">Update Service</h2>
+   
+       <form class="CreateForm" [formGroup]="editFormService" (ngSubmit)="updatedService()">
+   
+           <input type="text" class="CreateProblem form-control" name="problemName" formControlName="serviceProblem" placeholder="Problem">
+           <input type="text" class="CreateCause form-control" name="årsagName" formControlName="årsagName" placeholder="Årsag">
+           <input type="text" class="CreateSolution form-control" name="løsningName" formControlName="løsningName" placeholder="Løsning">
+   
+           <button type="submit" class="CreateService">Update Service</button>
+   
+       </form>
+   
+   
+   </div>
+
+   </div>

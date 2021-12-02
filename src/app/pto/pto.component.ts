@@ -70,7 +70,7 @@ export class PtoComponent implements OnInit {
      
   ngOnInit(){ 
     this.retrieveProblems();
-    this.getSingleProblem("614c27abb058e7dd464cd330");
+    this.getSingleProblem("61939fc62de969f56120c4ad");
   
   }
 
@@ -84,12 +84,6 @@ export class PtoComponent implements OnInit {
         });
   }
 
-  onSelectId(){
-     
-      
-      
-  }
-  
   getSingleProblem(id: any){
     this.problemService.get(id)
     .subscribe((data: problemSer) => {this.services = data;

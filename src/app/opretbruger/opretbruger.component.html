@@ -1,0 +1,36 @@
+<div class="brugerContent">
+
+<div class="brugerMain">
+
+    <h3 class="opretTxt">Opretning af brugere</h3>
+
+    <form action="" class="opretForm" id="myForm1" (ngSubmit)="submitRegister()" [formGroup]="registerGroup">
+    
+
+    <input type="text" class="userName" formControlName="userName" placeholder="Bruger Navn" name="username" [(ngModel)]="registerForm.username" required>
+    
+    <input type="email" class="signMail"  formControlName="email" placeholder="Email" name="mail" [(ngModel)]="registerForm.mail"  required>
+
+    <input type="password" class="signPass"  formControlName="password" placeholder="Password" name="pass" [(ngModel)]="registerForm.pass" required>
+
+    <select name="" id="role">
+        <option value="" selected>Bruger rolle</option>
+        <option value="" name="admin" >Admin</option>
+        <option value="" name="user" >User</option>
+    </select>
+
+    <button type="submit" class="submitCreate"  >Opret Bruger</button>
+  </form>
+
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Bruger er blevet oprettet!</strong>
+    <button type="button" class="close" data-dismiss="alert" (click)="closeAlert(); reloadPage()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+</div>
+
+
+
+</div>

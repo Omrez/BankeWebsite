@@ -1,0 +1,67 @@
+.wrapper{
+    width: auto;
+    height: 100vh;
+    position: relative;
+}
+.serviceContent{
+    width: 33%;
+    height: 600px;
+    background-color: burlywood;
+    top: 50px;
+    left: 50px;
+    overflow: auto;
+    position: absolute;
+
+}
+::placeholder{
+    text-align: center;
+}
+.CreateForm{
+    display: block;
+}
+.serviceTxt{
+    font-size: 23px;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+.CreateProblem{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    margin: 0 auto;
+    border: none;
+    margin-top: 80px;
+    outline: none;
+    border-radius: 7px;
+    text-align: center;
+}
+.CreateCause{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    margin-top: 30px;
+}
+.CreateSolution{
+    margin-top: 30px;
+    display: flex;
+    width: 70%;
+    height: 40px;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    margin-top: 30px;
+}
+.CreateService{
+    width: 150px;
+    height: 40px;
+    margin-left: 15%;
+    margin-top: 30px;
+    border: none;
+    border-radius: 7px;
+    background-color: slateblue;
+}

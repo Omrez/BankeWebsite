@@ -17,7 +17,7 @@
 
    <select id="årsag1" onchange="myFunc()">
       <option id="" selected>Mulige årsager</option>
-      <option id="" *ngFor="let cause of services?.causes" [value]="services.id">{{cause}}</option>
+      <option id=""  [value]="services.id">{{problems[0]?.causes[0].name}}</option>
     </select>
                                 
     <select id="årsag2" onchange="myFunc()" hidden>
