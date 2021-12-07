@@ -4,15 +4,34 @@
     position: relative;
 }
 .serviceContent{
-    width: 28%;
+    width: 30%;
     height: 400px;
     background-color: burlywood;
     top: 50px;
-    left: 50px;
+    left: 3.3%;
     overflow: auto;
     position: absolute;
-
 }
+
+.causeContent{
+    width: 30%;
+    height: 420px;
+    background-color: turquoise;
+    position: absolute;
+    left: 35%;
+    top: 50px;
+    overflow: scroll;
+}
+.solutionContent{
+    width: 30%;
+    height: 420px;
+    background-color: turquoise;
+    position: absolute;
+    left: 67%;
+    top: 50px;
+    overflow: scroll;
+}
+
 ::placeholder{
     text-align: center;
 }
@@ -65,22 +84,7 @@
     border-radius: 7px;
     background-color: slateblue;
 }
-.causeContent{
-    width: 28%;
-    height: 400px;
-    background-color: turquoise;
-    position: absolute;
-    left: 32%;
-    top: 50px;
-}
-.solutionContent{
-    width: 28%;
-    height: 400px;
-    background-color: turquoise;
-    position: absolute;
-    left: 61%;
-    top: 50px;
-}
+
 select{
     width: 70%;
     height: 40px;
@@ -92,4 +96,16 @@ select{
 }
 option{
     text-align: center;
+}
+
+.alert{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.close{
+    border: none;
+    background-color: transparent;
+    float: right;
+    
 }

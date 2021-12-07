@@ -41,6 +41,10 @@ export class ProblemService {
   createCause(id: any, data: any) {
     return this.http.post(`${baseUrl}/${id}/cause`, data);
   }
+
+  createSolution(id: any, data: any) {
+    return this.http.post(`${baseUrl}/${id}/solution`, data);
+  }
 /*
   delete(id: any) {
     return this.http.delete(`${baseUrl}/${id}`);

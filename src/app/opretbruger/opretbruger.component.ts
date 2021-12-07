@@ -12,9 +12,10 @@ export class OpretbrugerComponent implements OnInit {
 
   // validate sign up
   registerGroup = new FormGroup({
-    userName: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
+    roles: new FormControl('', Validators.required)
 
   });
 
@@ -22,25 +23,23 @@ export class OpretbrugerComponent implements OnInit {
   registerForm: any = {
     username: null,
     mail: null,
-    pass: null,
-    admin: null,
-    user: null
+    pass: null
   };
 
   alert:boolean = false;
   errorMessage = '';
   isSuccessful = false;
   isSignUpFailed = false;
-  roles: string[] = [];
 
   constructor(private authService: AuthService,) { }
 
   ngOnInit(): void {
+    
   }
 
   submitRegister(): void{
     const {username, mail, pass} = this.registerForm;
-    console.log("its works");
+    console.log(this.registerGroup.value);
     this.authService.register(username, mail, pass).subscribe(
       data => {
         console.log(data);
@@ -55,6 +54,10 @@ export class OpretbrugerComponent implements OnInit {
     );
     this.alert = true;
   } //submit Register end
+
+  onChange(res: any){
+    console.log(res.value)
+  }
 
   reloadPage(): void {
 

@@ -17,29 +17,10 @@
 
    <select id="årsag1" onchange="myFunc()">
       <option id="" selected>Mulige årsager</option>
-      <option id=""  [value]="services.id">{{problems[0]?.causes[0].name}}</option>
+      <option id="" ></option>
     </select>
                                 
-    <select id="årsag2" onchange="myFunc()" hidden>
-      <option id="" selected>Please choose an option</option>
-      <option id="mo">Manglende Olie</option>
-      <option id="na">Nødstop aktiv</option>
-      <option id="eia">E-pto ikke aktiveret </option>
-    </select>
-
-    <select id="årsag3" onchange="myFunc()" hidden>
-      <option id="" selected>Please choose an option</option>
-      <option id="benz">Påfyld Olie </option>
-      <option id="bmw">Påfyld Olie </option>
-      <option id="opel">Påfyld Olie </option>
-    </select>
-
-    <select id="årsag4" onchange="myFunc()">
-      <option id="" selected>Please choose an option</option>
-      <option id="fpls">Fejl på LS </option>
-      <option id="fpetl">Fejl på ETL </option>
-      <option id="fpm">Fejl på elmotor </option>
-    </select>
+  
 
     
     <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}</p>

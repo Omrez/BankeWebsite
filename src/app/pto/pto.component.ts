@@ -70,7 +70,7 @@ export class PtoComponent implements OnInit {
      
   ngOnInit(){ 
     this.retrieveProblems();
-    this.getSingleProblem("61939fc62de969f56120c4ad");
+    //this.getSingleProblem("61939fc62de969f56120c4ad");
   
   }
 

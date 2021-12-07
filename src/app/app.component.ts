@@ -106,7 +106,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  submitRegister(): void{
+ /* submitRegister(): void{
     const {username, mail, pass} = this.registerForm;
 
     this.authService.register(username, mail, pass).subscribe(
@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
         
       }
     );
-  } //submit Register end
+  } //submit Register end*/
 
   submitLogin(): void{
     const {lusername, lpassword} = this.loginForm;

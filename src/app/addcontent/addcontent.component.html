@@ -13,39 +13,79 @@
            <button type="submit" class="CreateService">Opret Problem</button>
    
        </form>
+
+       <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
+        <strong>Problem er blevet Oprettet!</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
    
    
    </div>
 
-   <div class="causeContent">
+   <div class="causeContent" >
         <h2 class="serviceTxt">Opret Årsag</h2>
     
-        <form action="" class="CreateForm" [formGroup]="createCause">
+        <form action="" class="CreateForm" [formGroup]="createCause" (ngSubmit)="createCauses()">
 
-            <select name="" id="red" (change)="onChange($event.target)">
-                <option id="" selected>Vælg problem til årsag</option>
-                <option id="" *ngFor="let problem of problems" [value]="problem._id">{{problem.serviceProblem}}</option>
+            <select name="" id="red" formControlName="selectCause">
+                <option id="" value="" selected>Vælg problem til årsag</option>
+                <option id=""  *ngFor="let problem of problems" [value]="problem._id">{{problem.serviceProblem}}</option>
             </select>
 
-            <input type="text" class="CreateCause" placeholder="Årsag" formControlName="name"  required>
+            <div formArrayName="name">
+
+                <div>
+                    <button type="button" class="CreateService " (click)="addCauseArray()">tilføj årsag</button> 
+                </div>
+
+                <div *ngFor="let arr of causeControls; let i = index">
+                    <input type="text" class="CreateCause" [formControlName]="i" placeholder="Årsag" />
+
+                </div>
+
+            </div>
+
+          <!--  <input type="text" class="CreateCause" placeholder="Årsag" formControlName="name"  required>-->
+            
 
             <button type="submit" class="CreateService">Opret Årsag</button>
+            
 
         </form>
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
+            <strong>Problem er blevet Oprettet!</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
    </div>
 
    <div class="solutionContent">
         <h2 class="serviceTxt">Opret Forbedring</h2>
         
-        <form action="" class="CreateForm" [formGroup]="createSolution">
+        <form action="" class="CreateForm" [formGroup]="createSolution" (ngSubmit)="createSolutions()">
 
-            <select name="" id="">
-                <option id="" selected>Vælg problem til forbedring</option>
-                <option id="" *ngFor="let problem of problems" [value]="problem.id">{{problem.serviceProblem}} </option>
+            <select name="" id="" formControlName="selectSolution">
+                <option id="" value="" selected>Vælg problem til forbedring</option>
+                <option id="" *ngFor="let problem of problems" [value]="problem._id">{{problem.serviceProblem}} </option>
             </select>
 
-            <input type="text" class="CreateSolution" placeholder="Forbedring" formControlName="name"  required>
+            <div formArrayName="name">
+
+                <div>
+                    <button type="button" class="CreateService " (click)="addSolutionArray()">tilføj årsag</button> 
+                </div>
+
+                <div *ngFor="let arr of solutionControls; let i = index">
+                    <input type="text" class="CreateCause" [formControlName]="i" placeholder="Forbedring" />
+
+                </div>
+
+            </div>
 
             <button type="submit" class="CreateService">Opret Forbedring</button>
 
