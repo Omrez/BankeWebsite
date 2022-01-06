@@ -6,9 +6,9 @@
 .serviceContent{
     width: 33%;
     height: 600px;
-    background-color: burlywood;
+    background-color: rgba(54, 105, 186, 0.4);
     top: 50px;
-    left: 50px;
+    left: 35%;
     overflow: auto;
     position: absolute;
 
@@ -23,6 +23,7 @@
     font-size: 23px;
     margin-top: 50px;
     margin-left: 15%;
+    color: #003462;
 }
 .CreateProblem{
     display: flex;

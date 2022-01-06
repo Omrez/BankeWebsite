@@ -14,7 +14,7 @@
    
        </form>
 
-       <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
+       <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="problemAlert">
         <strong>Problem er blevet Oprettet!</strong> 
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
           <span aria-hidden="true">&times;</span>
@@ -37,7 +37,7 @@
             <div formArrayName="name">
 
                 <div>
-                    <button type="button" class="CreateService " (click)="addCauseArray()">tilføj årsag</button> 
+                    <button type="button" class="CreateService " (click)="addCauseArray()">Tilføj årsag</button> 
                 </div>
 
                 <div *ngFor="let arr of causeControls; let i = index">
@@ -55,8 +55,8 @@
 
         </form>
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
-            <strong>Problem er blevet Oprettet!</strong> 
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="causeAlert">
+            <strong>Årsag er blevet Oprettet!</strong> 
             <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -77,7 +77,7 @@
             <div formArrayName="name">
 
                 <div>
-                    <button type="button" class="CreateService " (click)="addSolutionArray()">tilføj årsag</button> 
+                    <button type="button" class="CreateService " (click)="addSolutionArray()">Tilføj Forbedring</button> 
                 </div>
 
                 <div *ngFor="let arr of solutionControls; let i = index">

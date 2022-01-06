@@ -9,17 +9,19 @@
 
     <input type="text" class="userName" formControlName="username" placeholder="Bruger Navn" name="username" [(ngModel)]="registerForm.username" required>
     
-    <input type="email" class="signMail"  formControlName="email" placeholder="Email" name="mail" [(ngModel)]="registerForm.mail"  required>
+    <input type="email" class="signMail"  formControlName="email" placeholder="Email" name="email" [(ngModel)]="registerForm.email"  required>
 
-    <input type="password" class="signPass"  formControlName="password" placeholder="Password" name="pass" [(ngModel)]="registerForm.pass" required>
+    <input type="password" class="signPass"  formControlName="password" placeholder="Password" name="password" [(ngModel)]="registerForm.password" required>
+
+    <input type="text" class="signPass"  formControlName="name" placeholder="roles" name="name" [(ngModel)]="registerForm.name" required>
 
 
 
-     <select  id="role" name="roles" formControlName="roles">
+    <!-- <select  id="role" name="roles" name="roles" [(ngModel)]="registerForm.roles">
         <option value="" selected>Bruger rolle</option>
         <option value="admin"  >admin</option>
         <option value="user"   >user</option>
-    </select> 
+    </select> -->
 
     <button type="submit" class="submitCreate"  >Opret Bruger</button>
   </form>

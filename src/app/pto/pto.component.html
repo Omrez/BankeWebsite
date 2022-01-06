@@ -8,19 +8,20 @@
     <input type="text" id="serieNr" formControlName="serie" placeholder="{{'Please enter serial number' | translate}}" [(ngModel)]="pto.serieNr"  name="serieNr" required />
   </div>
     
-    
-    <select id="problemstillinger" onchange="myFunc()">
-      <option id="" selected>Service Problem</option>
-      <option id="" *ngFor="let problem of problems" [value]="problem.id">{{problem.serviceProblem}} </option>
+  <form action="" > 
+
+    <select id="problemstillinger"  (change)="onSelect($event.target)">
+      <option id=""  selected>Service Problem</option>
+      <option id="" *ngFor="let problem of problems" [value]="problem._id">{{problem.serviceProblem}} </option>
     </select>
     
 
-   <select id="årsag1" onchange="myFunc()">
-      <option id="" selected>Mulige årsager</option>
-      <option id="" ></option>
+   <select id="årsag1" >
+      <option id=""  selected>Mulige årsager</option>
+      <option id=""  *ngFor="let cause of causes">{{cause?.name}}</option>
     </select>
                                 
-  
+  </form> 
 
     
     <p id="fejlName" data-ng-bind="pto.fejlName" name="fejlName">{{pto.fejlName}}</p>

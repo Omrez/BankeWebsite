@@ -15,15 +15,16 @@ export class OpretbrugerComponent implements OnInit {
     username: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    roles: new FormControl('', Validators.required)
+    name: new FormControl('', Validators.required)
 
   });
 
   // register
   registerForm: any = {
     username: null,
-    mail: null,
-    pass: null
+    email: null,
+    password: null,
+    name: null
   };
 
   alert:boolean = false;
@@ -38,9 +39,9 @@ export class OpretbrugerComponent implements OnInit {
   }
 
   submitRegister(): void{
-    const {username, mail, pass} = this.registerForm;
-    console.log(this.registerGroup.value);
-    this.authService.register(username, mail, pass).subscribe(
+    const {username, email, password, name} = this.registerForm;
+    console.log("data", this.registerForm);
+    this.authService.register(username, email, password, name).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

@@ -25,7 +25,9 @@ export class AddcontentComponent implements OnInit {
     name: new FormArray([]),
   })
 
-  alert: boolean = false;
+  problemAlert: boolean = false;
+  causeAlert: boolean = false;
+  solutionAlert: boolean = false;
   problems: any = [];
 
   constructor(private service: ProblemService, private router: ActivatedRoute) { }
@@ -58,7 +60,7 @@ export class AddcontentComponent implements OnInit {
       })
 
       
-      this.alert = true;
+      this.problemAlert = true;
   }
 
   createCauses(){
@@ -66,7 +68,7 @@ export class AddcontentComponent implements OnInit {
       console.log("dataRes",data)
     })
 
-    this.alert = true;
+    this.causeAlert = true;
   }
 
   createSolutions(){
@@ -87,8 +89,11 @@ export class AddcontentComponent implements OnInit {
   }
 
   closeAlert(){
-    this.alert = false;
+    this.problemAlert = false;
     this.createForm.reset();
+    window.location.reload();
   }
+
+  
 
 }

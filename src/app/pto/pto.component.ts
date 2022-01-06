@@ -2,14 +2,18 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import {PtoService} from '../services/pto.service';
 import { ProblemService } from '../services/problem.service';
 import "../../assets/js/jsFunc";
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import {problemSer} from '../interface/problem.interface';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'; 
+import { causeInter } from '../interface/cause.interface';
 import Swal from 'sweetalert2';
+import 'rxjs/add/operator/filter';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
+
 
 
 
@@ -43,19 +47,21 @@ export class PtoComponent implements OnInit {
     fejlName: ''
 
   };
-  
 
-  problems: any = [];
   services: problemSer;
+  problems: any = [];
+  causes: any = [];
 
   selectedProblem: any;
+  selectedCause: any;
 
   constructor(
      private ptoService: PtoService,
      private problemService: ProblemService,
      public _router: Router,
      public _location: Location,
-     public translate: TranslateService
+     public translate: TranslateService,
+     private fb: FormBuilder
      ) {
        translate.addLangs(['EN','DK']);
        translate.setDefaultLang('EN');
@@ -69,10 +75,21 @@ export class PtoComponent implements OnInit {
   }
      
   ngOnInit(){ 
+
     this.retrieveProblems();
     //this.getSingleProblem("61939fc62de969f56120c4ad");
+
   
   }
+
+
+  onSelect(id: any){
+      this.selectedProblem = id;
+      this.selectedCause = '';
+      this.causes = this.problemService.getAllCauses().filter((item) => {
+        return item.serviceType === (id)
+      })
+  } 
 
   retrieveProblems() {
     this.problemService.getAll()
